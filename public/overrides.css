@@ -1,0 +1,17 @@
+label.upload-group
+{
+	width: 100px;
+	height: 20px;
+	color: white;
+	padding:5 5 5 5;
+	text-align: center;
+	background-image: linear-gradient(to bottom, #337ab7 0, #265a88 100%);
+}
+
+input#file
+{
+	width: 0.1px;
+	height: 0.1px;
+	position: absolute;
+	z-index: -1;
+}

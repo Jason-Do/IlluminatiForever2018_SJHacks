@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<!--<head><link rel="stylesheet" href="overrides.css"></head>-->
+<!-- <script src="scripts.js" type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> -->
+<header><title>IlluminatiForever2018</title></header>
+<body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+var selectedFile;
+
+$('#file').on("change", function(event) {
+	selectedFile = event.target.files[0];
+	console.log("help");
+});
+
+function upload() {
+	console.log("help");
+	ufile = $('#file').get(0).files[0];
+	var filename = ufile.name;
+	var storageRef = firebase.storage().ref('/toAnalyze/' + filename);
+	var uploadTask = storageRef.put(ufile).then(function(snapshot) {
+		console.log('Uploaded a blob or file!!!');
+	});
+	
+	firebase.storage().ref('/Audio/Airhorn.mp3').getDownloadURL().then(function(url) {
+  // `url` is the download URL for 'images/stars.jpg'
+
+  // This can be downloaded directly:
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) {
+    var blob = xhr.response;
+  };
+  xhr.open('GET', url);
+  xhr.send();
+  console.log(url);
+  var a = new Audio(url);
+  a.play();
+}).catch(function(error) {
+  // Handle any errors
+});
+}
+</script>
+
+<p> Welcome to Illuminati Forever 2018!!!! </p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Illuminati-Logo.png" width="200" height="200">
+<p> We are aiming to discover any evidence of Illuminati activity. </p>
+<p> Please help us by uploading possible Illuminati sightings to our website for analysis. </p>
+
+Select image to upload:
+	<input type="file" id="file">
+<button type="button" class="btn btn-primary" id="uploadButton" onclick="upload()">SUBMIT</button>
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAEuqPzP_wqArU64Rxhb4LTMObREnGhU-4",
+    authDomain: "illuminatiforever2018.firebaseapp.com",
+    databaseURL: "https://illuminatiforever2018.firebaseio.com",
+    projectId: "illuminatiforever2018",
+    storageBucket: "illuminatiforever2018.appspot.com",
+    messagingSenderId: "408700733535"
+  };
+  firebase.initializeApp(config);
+</script>
+<embed width="0" height="0" src="https://www.youtube.com/embed/XEP4p_rwL0I?autoplay=1&loop=1&playlist=XEP4p_rwL0I">
+	<p><img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-09/5/16/campaign_images/webdr10/16-cats-who-love-pizza-as-much-as-you-2-8508-1409949779-19_dblbig.jpg" width = "300" height= "200"></p>
+	<p> Website by illuminati Xperts Jason Do, Harry Tran, Sid Sharma
+</body>
+</html>
